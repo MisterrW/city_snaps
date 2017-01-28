@@ -1,0 +1,23 @@
+{
+  "name": "city_snaps",
+  "version": "1.0.0",
+  "description": "Practice using JSON APIs. aim: a one-page web app which on selecting a world city, shows its location on a google map, the current weather, and a paragraph of text about it from Wikipedia.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MisterrW/city_snaps.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "bugs": {
+    "url": "https://github.com/MisterrW/city_snaps/issues"
+  },
+  "homepage": "https://github.com/MisterrW/city_snaps#readme"
+}
