@@ -1,4 +1,22 @@
+body {
+	margin: 0;
+	font-family: monospace;
+}
 #map {
-  width: 500px;
-  height: 500px;
+  /*width: 500px;
+  height: 500px;*/
+  
+  z-index: 1
+  margin: 0;
+  height: 100vh;
+  position: fixed;
+}
+
+#overlay {
+	margin: 100px;
+	padding: 30px;
+	background-color: white;
+	position: fixed;
+	z-index: 9;
+	box-shadow: 3px 4px 56px 19px rgba(0,0,0,0.75);
 }

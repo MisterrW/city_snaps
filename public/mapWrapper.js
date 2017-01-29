@@ -26,6 +26,7 @@ MapWrapper.prototype = {
     }.bind(this));
   },
   moveCenter: function(coords){
-    this.googleMap.setCenter(new google.maps.LatLng({lat: coords.lat, lng: coords.lng}))
+    this.googleMap.setCenter(new google.maps.LatLng({lat: coords.lat, lng: coords.lng}));
+    this.googleMap.setZoom(11);
   }
 }
