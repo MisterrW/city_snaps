@@ -9,12 +9,12 @@ app.get('/', function (req, res) {
 // app.get('/cityNames', function (req, res) {
 //   res.sendFile(path.join(__dirname + '/public/countriesToCities.json'));
 // });
-
+var port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
 // app.use(connect.json());
 
-var server = app.listen(3000, function () {
+var server = app.listen(port, function () {
   var host = server.address().address;
   var port = server.address().port;
 
