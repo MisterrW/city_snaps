@@ -1,5 +1,5 @@
-var MapWrapper = function(container, coords, zoom){
-  this.googleMap = new google.maps.Map(container, {center: coords, zoom: zoom});
+var MapWrapper = function(container, coords, zoom, styleArray){
+  this.googleMap = new google.maps.Map(container, {center: coords, zoom: zoom, styles: styleArray});
 }
 
 MapWrapper.prototype = {
@@ -28,5 +28,8 @@ MapWrapper.prototype = {
   moveCenter: function(coords){
     this.googleMap.setCenter(new google.maps.LatLng({lat: coords.lat, lng: coords.lng}));
     this.googleMap.setZoom(11);
-  }
+  },
+  // changeStyle: function(styleArray){
+
+  // }
 }

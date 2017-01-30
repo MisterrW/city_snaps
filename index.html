@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>CitySnaps</title>
+  <link href="https://fonts.googleapis.com/css?family=Maven+Pro|Play|Heebo|Michroma" rel="stylesheet">
   <link rel='stylesheet' type='text/css' href='main.css'>
   <script src='https://maps.googleapis.com/maps/api/js'></script>
   <script src='mapWrapper.js'></script>
@@ -12,9 +13,13 @@
 <body>
   
   <div id="overlay">
+    <div id="title">
+      <h1>city_snaps</h1>
+    </div>
+    <div id="main">
     <div id="input">
-      <input type="text" id="city-chooser">city</input>
-      <input type="text" id="country-chooser">country</input>
+      <input type="text" id="city-chooser"> city</input>
+      <input type="text" id="country-chooser"> country</input>
       <button id="go">GO</button>
     </div>
     <div id="test">
@@ -26,7 +31,14 @@
       </div>
 
     </div>
+    </div>
+  </div>
+  <div id="footer">
+    <p>
+    <a href="">List of APIs and explanation</a>
+    </p>
   </div>
   <div id="map"></div>
+  
 </body>
 </html>
