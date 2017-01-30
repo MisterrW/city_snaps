@@ -287,7 +287,13 @@ var app = function(){
   var go = function(){
       var cityChoice = document.querySelector("#city-chooser");
       // var countryChoice = document.querySelector("#country-chooser");
-      newCity(cityChoice.value, "");
+      var cityChoiceArr = cityChoice.value.split(" ");
+      var capsFixed = [];
+      for(word of cityChoiceArr){
+        capsFixed.push(word.capitalize());
+      }
+      var queryString = capsFixed.join(" ");
+      newCity(queryString, "");
     }
 
     // var goButt = document.querySelector("#go");
