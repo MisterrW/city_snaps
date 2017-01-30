@@ -4,6 +4,10 @@ body {
 	font-family: monospace;
 }
 
+/*div {
+	background-color: yellow;
+}*/
+
 #map {
   /*width: 500px;
   height: 500px;*/
@@ -12,15 +16,22 @@ body {
   margin: 0;
   height: 100vh;
   position: fixed;
+  /*background-color: none;*/
 }
 
 #overlay {
-	margin: 100px;
+	width: 100%;
+	display: flex;
 	padding: 00px;
-	background-color: white;
+	background-color: yellow;
 	position: fixed;
 	z-index: 9;
 	box-shadow: 3px 4px 56px 19px rgba(0,0,0,0.75);
+}
+
+#this-div {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 #title {
@@ -33,6 +44,7 @@ body {
 #main {
 	padding: 30px;
 	padding-top: 15px;
+	background-color: none;
 }
 
 #footer {
@@ -105,7 +117,7 @@ h2 {
 }
 
 #notes {
-	background-color: white;
+	background-color: yellow;
 	padding-top: 15px;
 	padding-bottom: 15px;
 	padding-left: 30px;
