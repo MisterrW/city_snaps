@@ -17,7 +17,7 @@ var app = function(){
   }
 
   var getCurrentTime = function(lat, lng){
-    var url = "http://api.timezonedb.com/v2/get-time-zone?key=AFQAZRVOAIDL&format=json&by=position&lat=" + lat + "&lng=" + lng;
+    var url = "https://api.timezonedb.com/v2/get-time-zone?key=AFQAZRVOAIDL&format=json&by=position&lat=" + lat + "&lng=" + lng;
     makeRequest(url, function(){
       console.log(JSON.parse(this.responseText));
       postCurrentTime(JSON.parse(this.responseText));
@@ -192,5 +192,15 @@ var app = function(){
       description.style.display = "none";
     }
   }
+
+  var swapStyleSheet = function(sheet){
+    document.getElementById('main-style').setAttribute('href', sheet);
+  }
+
+  var changeStyle = document.querySelector("#change-style");
+  changeStyle.onclick = function(){
+    var chooseStyle = document.querySelector("#choose-style");
+  swapStyleSheet(chooseStyle.value + '.css');
+}
 }
 window.onload = app;
