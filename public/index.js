@@ -4,162 +4,162 @@ var app = function(){
   {
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#f5f5f5"
-      }
+    {
+      "color": "#f5f5f5"
+    }
     ]
   },
   {
     "elementType": "labels.icon",
     "stylers": [
-      {
-        "visibility": "off"
-      }
+    {
+      "visibility": "off"
+    }
     ]
   },
   {
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#616161"
-      }
+    {
+      "color": "#616161"
+    }
     ]
   },
   {
     "elementType": "labels.text.stroke",
     "stylers": [
-      {
-        "color": "#f5f5f5"
-      }
+    {
+      "color": "#f5f5f5"
+    }
     ]
   },
   {
     "featureType": "administrative.land_parcel",
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#bdbdbd"
-      }
+    {
+      "color": "#bdbdbd"
+    }
     ]
   },
   {
     "featureType": "poi",
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#eeeeee"
-      }
+    {
+      "color": "#eeeeee"
+    }
     ]
   },
   {
     "featureType": "poi",
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#757575"
-      }
+    {
+      "color": "#757575"
+    }
     ]
   },
   {
     "featureType": "poi.park",
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#e5e5e5"
-      }
+    {
+      "color": "#e5e5e5"
+    }
     ]
   },
   {
     "featureType": "poi.park",
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
+    {
+      "color": "#9e9e9e"
+    }
     ]
   },
   {
     "featureType": "road",
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#ffffff"
-      }
+    {
+      "color": "#ffffff"
+    }
     ]
   },
   {
     "featureType": "road.arterial",
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#757575"
-      }
+    {
+      "color": "#757575"
+    }
     ]
   },
   {
     "featureType": "road.highway",
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#dadada"
-      }
+    {
+      "color": "#dadada"
+    }
     ]
   },
   {
     "featureType": "road.highway",
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#616161"
-      }
+    {
+      "color": "#616161"
+    }
     ]
   },
   {
     "featureType": "road.local",
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
+    {
+      "color": "#9e9e9e"
+    }
     ]
   },
   {
     "featureType": "transit.line",
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#e5e5e5"
-      }
+    {
+      "color": "#e5e5e5"
+    }
     ]
   },
   {
     "featureType": "transit.station",
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#eeeeee"
-      }
+    {
+      "color": "#eeeeee"
+    }
     ]
   },
   {
     "featureType": "water",
     "elementType": "geometry",
     "stylers": [
-      {
-        "color": "#c9c9c9"
-      }
+    {
+      "color": "#c9c9c9"
+    }
     ]
   },
   {
     "featureType": "water",
     "elementType": "labels.text.fill",
     "stylers": [
-      {
-        "color": "#9e9e9e"
-      }
+    {
+      "color": "#9e9e9e"
+    }
     ]
   }
-]);
+  ]);
   var cityNow = {};
   var builtCities = {};
   var ukCities = new UkCities();
@@ -284,6 +284,22 @@ var app = function(){
     var cityChoice = document.querySelector("#city-chooser");
     var countryChoice = document.querySelector("#country-chooser");
     newCity(cityChoice.value, countryChoice.value);
+  }
+
+  var hideNotes = document.querySelector("#hide-notes");
+  hideNotes.style.display = "none";
+
+  var notesDiv = document.querySelector("#notes");
+  notesDiv.style.display = "none";
+
+  var showNotes = document.querySelector("#show-notes");
+  showNotes.onclick = function(){
+    notesDiv.style.display = "block";
+    hideNotes.style.display = "inline";
+    hideNotes.onclick = function(){
+      notesDiv.style.display = "none";
+      hideNotes.style.display = "none";
+    }
   }
 }
 

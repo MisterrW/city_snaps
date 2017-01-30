@@ -39,20 +39,23 @@ body {
 	z-index: 10;
 	position: fixed;
 	/*height: 5%;*/
-	margin: 0;
+	margin-left: 100px;
 	padding: 0;
 	/*position:absolute;*/
-   bottom:0;
-	width: 100%;
+    bottom:0;
+	/*width: 100%;*/
 	background-color: #800000;
 	box-shadow: 3px 4px 56px 19px rgba(0,0,0,0.75);
 }
 
-#footer > p {
+#footer > div > p {
 	margin: 5px;
+	padding-left: 30px;
 	padding: 0;
-	color: white;
-	font-family: 'Maven Pro';
+	/*color: white;*/
+	margin-right: 5%;
+/*	font-family: 'Maven Pro';*/
+	/*float: right;*/
 }
 
 a {
@@ -66,4 +69,40 @@ h1 {
 	color: white;
 	margin-top: 0;
 	padding: 0;
+}
+
+h2 {
+	font-family: 'Maven Pro';
+	margin: 0;
+	padding: 0;
+}
+
+#notes-select {
+	color: white;
+	font-family: 'Maven Pro';
+	margin-left: 30px;
+	margin-top: 10px;
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+
+#show-notes:hover {
+	cursor: pointer;
+}
+
+#hide-notes:hover {
+	cursor: pointer;
+}
+
+#notes {
+	background-color: white;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 30px;
+	margin: 0;
+}
+
+#notes p {
+	margin-left: 0;
+	padding-left: 0;
 }

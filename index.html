@@ -11,34 +11,53 @@
   <script src='index.js'></script>
 </head>
 <body>
-  
+
   <div id="overlay">
+
     <div id="title">
       <h1>city_snaps</h1>
     </div>
-    <div id="main">
-    <div id="input">
-      <input type="text" id="city-chooser"> city</input>
-      <input type="text" id="country-chooser"> country</input>
-      <button id="go">GO</button>
-    </div>
-    <div id="test">
-      <div id="this-div">
-        <p id="name"></p>
-        <p id="coords"></p>
-        <p id="weather"></p>
-        <p id="wiki"></p>
-      </div>
 
+    <div id="main">
+      <div id="test">
+
+        <div id="this-div">
+          <p style="white-space:pre;">City:   <span id="name"></span></p>
+          <p style="white-space:pre;">Coordinates:   <span id="coords"></span></p>
+          <p style="white-space:pre;">Weather:   <span id="weather"></span></p>
+          <p id="wiki"></p>
+        </div>
+        <hr/>
+
+        <div id="input">
+          <h2>new location</h2>
+          <input type="text" id="city-chooser"/> city <br/>
+          <input type="text" id="country-chooser"/> country 
+          <button id="go">GO</button>
+        </div>
+
+      </div>
     </div>
-    </div>
+
   </div>
+
   <div id="footer">
-    <p>
-    <a href="">List of APIs and explanation</a>
-    </p>
+    <div id="notes-select">
+      <h2> <span id=show-notes>
+        list of APIs and explanation</span> <span id="hide-notes">[close]</span>
+      </h2>
+    </div>
+    <div id="notes">
+      <p>
+        GOOGLE: geolocator to get the coordinates, map for the map.
+      </p>
+      <p>
+        OPENWEATHERMAP: weather. Gets sent the formatted placename from the Google geolocator request.
+      </p>
+    </div>
   </div>
-  <div id="map"></div>
-  
+
+<div id="map"></div>
+
 </body>
 </html>
