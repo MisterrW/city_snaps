@@ -262,7 +262,7 @@ var app = function(){
         // var thisDiv = document.querySelector("#this-div");
         var wikiP = document.querySelector("#wiki");
         // thisDiv.appendChild(weatherP);
-        wikiP.innerText = pagesArray[0].extract;
+        wikiP.innerHTML = "From Wikipedia:<br/><br/>" + pagesArray[0].extract;
       }
     });
   }
@@ -327,15 +327,19 @@ var app = function(){
   wiki.style.display = "none";
 
   var hideDescription = document.querySelector("#hide-description");
-  hideDescription.style.display = "none"
+  hideDescription.style.display = "none";
+
+  var input = document.querySelector("#input");
   
   var showDescription = document.querySelector("#show-description");
   showDescription.onclick = function(){
     showDescription.style.display = "none";
+    input.style.display = "none";
     hideDescription.style.display = "block";
     description.style.display = "block";
     hideDescription.onclick = function(){
       showDescription.style.display = "block";
+      input.style.display = "block";
       hideDescription.style.display = "none";
       description.style.display = "none";
     }

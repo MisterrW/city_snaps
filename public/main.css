@@ -96,10 +96,12 @@ h2 {
 
 #show-description:hover {
 	cursor: pointer;
+	color: red;
 }
 
 #hide-description:hover {
 	cursor: pointer;
+	color: red;
 }
 
 #notes {
