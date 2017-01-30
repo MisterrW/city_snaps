@@ -94,6 +94,14 @@ h2 {
 	cursor: pointer;
 }
 
+#show-description:hover {
+	cursor: pointer;
+}
+
+#hide-description:hover {
+	cursor: pointer;
+}
+
 #notes {
 	background-color: white;
 	padding-top: 15px;

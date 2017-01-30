@@ -247,17 +247,22 @@ var app = function(){
   }
 
   var getWiki = function(name, country){
-    var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + name;
+    var url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=" + name + "&origin=*";
     makeRequest(url, function(){
       if (this.status !== 200){
         return;
       } else {
         var response = JSON.parse(this.responseText);
-        console.log(response);
+        console.log("wikiResponse:")
+        var pages = response.query.pages;
+        pagesArray = [];
+        for(page in pages) {pagesArray.push(pages[page])};
+          console.log(pagesArray);
+        console.log(pagesArray[0].extract)
         // var thisDiv = document.querySelector("#this-div");
         var wikiP = document.querySelector("#wiki");
         // thisDiv.appendChild(weatherP);
-        wikiP.innerText = "hello";
+        wikiP.innerText = pagesArray[0].extract;
       }
     });
   }
@@ -311,6 +316,29 @@ var app = function(){
       hideNotes.style.display = "none";
     }
   }
-}
 
+  var hideNotes = document.querySelector("#hide-notes");
+  hideNotes.style.display = "none";
+
+  var notesDiv = document.querySelector("#notes");
+  notesDiv.style.display = "none";
+
+  var description = document.querySelector("#wiki");
+  wiki.style.display = "none";
+
+  var hideDescription = document.querySelector("#hide-description");
+  hideDescription.style.display = "none"
+  
+  var showDescription = document.querySelector("#show-description");
+  showDescription.onclick = function(){
+    showDescription.style.display = "none";
+    hideDescription.style.display = "block";
+    description.style.display = "block";
+    hideDescription.onclick = function(){
+      showDescription.style.display = "block";
+      hideDescription.style.display = "none";
+      description.style.display = "none";
+    }
+  }
+}
 window.onload = app;
