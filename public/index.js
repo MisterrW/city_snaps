@@ -273,7 +273,7 @@ var app = function(){
   }
 
   
-  var goButt = document.querySelector("#go");
+
   newCity("Edinburgh", "uk");
   // newCity("Aberdeen", "uk");
   // newCity("Milan", "it");
@@ -281,11 +281,12 @@ var app = function(){
 
   var go = function(){
       var cityChoice = document.querySelector("#city-chooser");
-      var countryChoice = document.querySelector("#country-chooser");
-      newCity(cityChoice.value, countryChoice.value);
+      // var countryChoice = document.querySelector("#country-chooser");
+      newCity(cityChoice.value, "");
     }
 
-  goButt.onclick = go;
+    // var goButt = document.querySelector("#go");
+  // goButt.onclick = go;
 
   var cityChoice = document.querySelector("#city-chooser");
   cityChoice.onkeyup = function(event){
