@@ -24,6 +24,7 @@
         <div id="this-div">
           <p style="white-space:pre;">City:   <span id="name"></span></p>
           <p style="white-space:pre;">Coordinates:   <span id="coords"></span></p>
+          <p style="white-space:pre;">Local time:   <span id="time"></span></p>
           <p style="white-space:pre;">Weather:   <span id="weather"></span></p>
           <p id="wiki"></p>
         </div>
@@ -52,7 +53,10 @@
         GOOGLE: geolocator to get the coordinates, map for the map.
       </p>
       <p>
-        OPENWEATHERMAP: weather. Gets sent the formatted placename from the Google geolocator request.
+        TIMEZONEDB: local time. Gets sent coordinates from the Google geolocate callback.
+      </p>
+      <p>
+        OPENWEATHERMAP: weather. Gets sent the same placename as the Google geolocator.
       </p>
     </div>
   </div>

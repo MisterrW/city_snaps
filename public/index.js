@@ -169,6 +169,19 @@ var app = function(){
   console.log(ukCities.ukCities);
   var ukCitiesCoords = {};
 
+  var postCurrentTime = function(timeObject){
+    var localTime = document.querySelector("#time");
+    localTime.innerText = timeObject.formatted;
+  }
+
+  var getCurrentTime = function(lat, lng){
+    var url = "http://api.timezonedb.com/v2/get-time-zone?key=AFQAZRVOAIDL&format=json&by=position&lat=" + lat + "&lng=" + lng;
+    makeRequest(url, function(){
+      console.log(JSON.parse(this.responseText));
+      postCurrentTime(JSON.parse(this.responseText));
+    })
+  }
+
   var setUkCoords = function (results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       // alert("location : " + results[0].geometry.location.lat() + " " +results[0].geometry.location.lng());
@@ -186,13 +199,13 @@ var app = function(){
       // thisDiv.appendChild(coordsP);
       // test.appendChild(thisDiv);
       nameP.innerText = output.name;
-      coordsP.innerText = output.lat + " " + output.lng;
+      coordsP.innerText = output.lat + ", " + output.lng;
       map.moveCenter({lat: output.lat, lng: output.lng});
+      getCurrentTime(output.lat, output.lng);
     } else {
       alert("Bad times: " + status);
     }
   }
-
 
   var requestUkCoords = function(city, country){
     // for(city of ukCities.ukCities){
@@ -201,9 +214,6 @@ var app = function(){
     coordinator.geocode(city, country, setUkCoords);
   }
 
-  // var testDiv = document.querySelector("#test");
-  // testDiv.innerText = "working";
-
   var makeRequest = function (url, callback) {
     var request = new XMLHttpRequest();
     request.open('GET', url);
@@ -211,26 +221,14 @@ var app = function(){
     request.send();
   }
 
-  // var makeList = function () {
-  //   if (this.status !== 200) return;
-  //   var jsonString = this.responseText;
-  //   console.log(JSON.parse(jsonString));
-  //   cities = JSON.parse(jsonString).geonames;
-  //   console.log(cities);
-  //   var testDiv = document.querySelector("#test");
-  //   cityNames = [];
-  //   for (var city of cities){
-  //     var cityName = city.name + ": lat " + city.lat + ", long " + city.lng;
-  //     cityNames.push(cityName);
-  //   }
-  //   for (var city of cityNames){
-  //     var cityP = document.createElement('p');
-  //     cityP.innerText = city;
-  //     testDiv.appendChild(cityP);
-  //   }
-  // }
+  var round = function(number){
+    return (Math.round(number*100))/100;
+  }
 
-  // makeRequest("http://api.geonames.org/citiesJSON?north=59.7&south=55.5&east=-2.6&west=-12.1&lang=de&maxRows=100&username=MisterrW", makeList)
+  String.prototype.capitalize = function() {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+  }
+
   var getWeather = function(name, country){
     var url = "http://api.openweathermap.org/data/2.5/weather?q=" + name + "," + country + "&APPID=07830595d15fabfc0b091e97443be419";
     console.log(url);
@@ -240,10 +238,10 @@ var app = function(){
       } else {
         var response = JSON.parse(this.responseText);
         console.log(response);
-        // var thisDiv = document.querySelector("#this-div");
         var weatherP = document.querySelector("#weather");
-        // thisDiv.appendChild(weatherP);
-        weatherP.innerText = response["weather"][0]["description"];
+        var temp = round(response["main"]["temp"]-273.15);
+        var description = response["weather"][0]["description"].capitalize();
+        weatherP.innerText = description + ", " + temp + "°C.";
       }
     });
   }
@@ -276,14 +274,25 @@ var app = function(){
 
   
   var goButt = document.querySelector("#go");
-  newCity("London", "uk");
+  newCity("Edinburgh", "uk");
   // newCity("Aberdeen", "uk");
   // newCity("Milan", "it");
 
-  goButt.onclick = function(){
-    var cityChoice = document.querySelector("#city-chooser");
-    var countryChoice = document.querySelector("#country-chooser");
-    newCity(cityChoice.value, countryChoice.value);
+
+  var go = function(){
+      var cityChoice = document.querySelector("#city-chooser");
+      var countryChoice = document.querySelector("#country-chooser");
+      newCity(cityChoice.value, countryChoice.value);
+    }
+
+  goButt.onclick = go;
+
+  var cityChoice = document.querySelector("#city-chooser");
+  cityChoice.onkeyup = function(event){
+    if (event.keyCode === 13) {
+      console.log("yep");
+      go();
+    }
   }
 
   var hideNotes = document.querySelector("#hide-notes");
